@@ -1,0 +1,17 @@
+name: Trigger Tines Every 5 Minutes
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Tines Webhook
+        run: |
+          curl -X POST "https://silent-star-5377.tines.com/webhook/website-uptime-monitor/abd8649438e30a1dd74aeea7eb49bc93" \
+          -H "Content-Type: application/json" \
+          -d '{}'
